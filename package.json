@@ -1,5 +1,16 @@
 {
   "dependencies": {
     "three": "^0.162.0"
-  }
+  },
+  "name": "100-resoraki",
+  "description": "",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
