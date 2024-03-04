@@ -10,20 +10,27 @@ function Box() {
   );
 }
 
-// function Sphere() {
-//   return (
-//     <mesh>
-//       <sphereBufferGeometry args={[1, 30, 30]} />
-//       <meshStandardMaterial color={"green"} />
-//     </mesh>
-//   );
-// }
+function Sphere() {
+  return (
+    <mesh>
+      <sphereBufferGeometry args={[1, 30, 30]} />
+      <meshStandardMaterial color={"green"} />
+    </mesh>
+  );
+}
 
 function App() {
   return (
     <div className="App">
       <div className="App">
-        <Canvas>{<Box />}</Canvas>
+        <Canvas>
+          {
+            <>
+              <Box />
+              <Box />
+            </>
+          }
+        </Canvas>
       </div>
     </div>
   );
