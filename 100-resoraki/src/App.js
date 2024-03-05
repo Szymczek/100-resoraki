@@ -14,7 +14,7 @@ function Sphere() {
   return (
     <mesh>
       <sphereBufferGeometry args={[1, 30, 30]} />
-      <meshStandardMaterial color={"green"} />
+      <meshStandardMaterial color={"blue"} />
     </mesh>
   );
 }
