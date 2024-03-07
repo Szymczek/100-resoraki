@@ -37,7 +37,7 @@ function ThreeDObject() {
           color="#FFFFFF"
           roughness={0.5}
           metalness={0.5}
-          gradientMap={[0x000000, 0xffffff]} // Dodajemy gradientMap, aby uzyskać gradient
+          gradientMap={[0x111100, 0xfe11ff]} // Dodajemy gradientMap, aby uzyskać gradient
         />
       </Box>
     </Canvas>
