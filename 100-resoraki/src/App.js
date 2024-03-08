@@ -1,12 +1,12 @@
 import React from "react";
-import ThreeDObject from "./ThreeDObject";
 import ReactDOM from "react-dom";
-// import ReactDOM from "@react-three/drei";
+import Scene from "./Scene";
+
 function App() {
   return (
     <div>
       <h1>Witaj w mojej aplikacji React z Three.js!</h1>
-      <ThreeDObject />
+      <Scene />
     </div>
   );
 }
