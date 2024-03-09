@@ -7,6 +7,7 @@ function App() {
     <div>
       <h1>Witaj w mojej aplikacji React z Three.js!</h1>
       <Scene />
+      <p>End</p>
     </div>
   );
 }
