@@ -1,12 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const Scene = () => {
   const containerRef = useRef(null);
-  const vehicleRef = useRef(null);
-  const speed = 0.1;
+  const speed = 0.5;
   const movement = {
     forward: false,
     backward: false,
@@ -49,17 +47,20 @@ const Scene = () => {
       scene.add(directionalLight);
 
       // Load vehicle model
-      const loader = new GLTFLoader();
-      loader.load("/car.glb", (gltf) => {
-        vehicleRef.current = gltf.scene;
-        scene.add(gltf.scene);
-      });
+      const geometry = new THREE.BoxGeometry();
+      const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 
-      // Event listeners
+      for (let i = 0; i < 5; i++) {
+        const box = new THREE.Mesh(geometry, material);
+        box.position.x = (Math.random() - 0.5) * 10;
+        box.position.y = (Math.random() - 0.5) * 10;
+        box.position.z = (Math.random() - 0.5) * 10;
+        scene.add(box);
+      }
+
       document.addEventListener("keydown", onKeyDown);
       document.addEventListener("keyup", onKeyUp);
 
-      // Animation loop
       animate();
     };
 
@@ -67,16 +68,16 @@ const Scene = () => {
       requestAnimationFrame(animate);
 
       if (movement.forward) {
-        vehicleRef.current.translateZ(-speed);
+        scene.translateZ(-speed);
       }
       if (movement.backward) {
-        vehicleRef.current.translateZ(speed);
+        scene.translateZ(speed);
       }
       if (movement.left) {
-        vehicleRef.current.translateX(-speed);
+        scene.translateX(-speed);
       }
       if (movement.right) {
-        vehicleRef.current.translateX(speed);
+        scene.translateX(speed);
       }
 
       renderer.render(scene, camera);
@@ -125,7 +126,6 @@ const Scene = () => {
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("keyup", onKeyUp);
-      // Clean up Three.js objects here
     };
   }, []);
 
