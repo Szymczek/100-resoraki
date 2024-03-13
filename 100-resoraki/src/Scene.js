@@ -4,7 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const Scene = () => {
   const containerRef = useRef(null);
-  const speed = 0.5;
+  const speed = 0.2;
   const movement = {
     forward: false,
     backward: false,
