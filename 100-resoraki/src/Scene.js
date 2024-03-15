@@ -6,7 +6,7 @@ const Scene = () => {
   const containerRef = useRef(null);
   const speed = 0.2;
   const movement = {
-    forward: false,
+    forward: true,
     backward: false,
     left: false,
     right: false,
