@@ -8,7 +8,7 @@ const Scene = () => {
   const movement = {
     forward: true,
     backward: false,
-    left: false,
+    left: true,
     right: false,
   };
 
