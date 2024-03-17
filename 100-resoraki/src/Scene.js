@@ -8,8 +8,8 @@ const Scene = () => {
   const movement = {
     forward: true,
     backward: false,
-    left: true,
-    right: false,
+    left: false,
+    right: true,
   };
 
   useEffect(() => {
