@@ -9,7 +9,7 @@ const Scene = () => {
     forward: true,
     backward: false,
     left: false,
-    right: true,
+    right: false,
   };
 
   useEffect(() => {
