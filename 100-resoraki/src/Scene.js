@@ -19,7 +19,7 @@ const Scene = () => {
       // Scene
       scene = new THREE.Scene();
       scene.background = new THREE.Color(0xdddddd);
-
+      // Skip
       // Camera
       camera = new THREE.PerspectiveCamera(
         75,
