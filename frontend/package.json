@@ -1,0 +1,48 @@
+{
+  "name": "ng-three-template",
+  "version": "16.2.0",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve -o",
+    "build": "ng build -c development",
+    "build:prod": "ng build -c production",
+    "build:both": "npm run build && npm run build:prod",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~16.2.1",
+    "@angular/common": "~16.2.1",
+    "@angular/compiler": "~16.2.1",
+    "@angular/core": "~16.2.1",
+    "@angular/forms": "~16.2.1",
+    "@angular/platform-browser": "~16.2.1",
+    "@angular/platform-browser-dynamic": "~16.2.1",
+    "@angular/router": "~16.2.1",
+    "bootstrap": "~4.6.0",
+    "rxjs": "~7.8.0",
+    "three": "^0.155.0",
+    "tslib": "^2.4.0",
+    "zone.js": "~0.13.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~16.2.0",
+    "@angular/cli": "~16.2.0",
+    "@angular/compiler-cli": "~16.2.1",
+    "@angular/language-service": "~16.2.1",
+    "@types/jasmine": "~4.3.5",
+    "@types/node": "^18.17.5",
+    "@types/three": "^0.155.0",
+    "@types/webgl2": "0.0.7",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.1.6"
+  }
+}
