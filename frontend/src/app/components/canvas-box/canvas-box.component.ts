@@ -35,7 +35,7 @@ export class CanvasBoxComponent implements OnInit {
    );
 
    const torus = new THREE.Mesh(
-      new THREE.TorusGeometry(5, 1.5, 16, 100),
+      new THREE.TorusGeometry(5, 2, 16, 100),
       material
    );
 
