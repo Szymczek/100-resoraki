@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import * as THREE from 'three';
+import { } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common'; // Import isPlatformBrowser
 
 @Component({
   selector: 'app-canvas-box',
   standalone: true,
-  imports: [],
   templateUrl: './canvas-box.component.html',
   styleUrl: './canvas-box.component.scss'
 })
+
 export class CanvasBoxComponent implements OnInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+
   ngOnInit(): void {
-   this.createThreeJsBox();
+    if (isPlatformBrowser(this.platformId)) {
+      this.createThreeJsBox();
+    }
   }
  
   createThreeJsBox(): void {
@@ -100,3 +106,4 @@ export class CanvasBoxComponent implements OnInit {
 
   }
  }
+
