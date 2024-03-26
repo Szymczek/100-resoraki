@@ -1,7 +1,7 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import * as THREE from 'three';
 import { } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common'; // Import isPlatformBrowser
+import { isPlatformBrowser } from '@angular/common'; 
 
 @Component({
   selector: 'app-canvas-box',
@@ -30,9 +30,9 @@ export class CanvasBoxComponent implements OnInit {
     scene.add(ambientLight);
 
     const pointLight = new THREE.PointLight(0xffffff, 0.5);
-    pointLight.position.x = 2;
-    pointLight.position.y = 2;
-    pointLight.position.z = 2;
+    pointLight.position.x = 4;
+    pointLight.position.y = 4;
+    pointLight.position.z = 4;
     scene.add(pointLight);  
     
     const box = new THREE.Mesh(
@@ -41,7 +41,7 @@ export class CanvasBoxComponent implements OnInit {
    );
 
    const torus = new THREE.Mesh(
-      new THREE.TorusGeometry(5, 2, 16, 100),
+      new THREE.TorusGeometry(5, 1.5, 80, 100),
       material
    );
 
