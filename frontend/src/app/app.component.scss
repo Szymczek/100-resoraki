@@ -1,3 +1,29 @@
-// body {
-//     background-color: black;
-// }
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playground {
+    margin: 20px 40px;
+    height: 70vh;
+    padding: 5px;
+    border: 2px solid grey;
+    overflow: auto;
+    min-width: fit-content; 
+    min-height: fit-content; 
+}
+
+.canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.alerts {
+    margin: 0 40px;
+    min-width: fit-content; 
+    min-height: fit-content; 
+}

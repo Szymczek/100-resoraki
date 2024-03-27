@@ -1,5 +1,17 @@
-<h1>Hello there!</h1>
-<h2 >{{title}}</h2>
-<!-- <input type="text" [(ngModel)]="title" > -->
-<app-canvas-box></app-canvas-box>
-<footer>cdn</footer>
+
+<div class="title">
+    <h1>Hello there!</h1>
+    <h2 >{{title}}</h2>   
+    <!-- <input type="text" [(ngModel)]="title" > -->
+</div>
+
+<section class="playground">
+    <div class="canvas">
+        <app-canvas-box></app-canvas-box>
+    </div>
+    <div class="alerts">
+        <app-success-alert></app-success-alert>
+        <app-warning-alert></app-warning-alert>
+    </div>
+</section>
+

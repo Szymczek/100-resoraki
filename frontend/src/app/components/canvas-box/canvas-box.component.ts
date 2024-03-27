@@ -48,8 +48,8 @@ export class CanvasBoxComponent implements OnInit {
    scene.add(torus, box);
   
    const canvasSizes = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 1000,
+    height: 550,
    };
 
    const camera = new THREE.PerspectiveCamera(
@@ -105,5 +105,7 @@ export class CanvasBoxComponent implements OnInit {
   animateGeometry();
 
   }
+
+
  }
 
