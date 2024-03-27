@@ -1,6 +1,5 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import * as THREE from 'three';
-import { } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common'; 
 
 @Component({
@@ -106,6 +105,6 @@ export class CanvasBoxComponent implements OnInit {
 
   }
 
-
+  
  }
 
