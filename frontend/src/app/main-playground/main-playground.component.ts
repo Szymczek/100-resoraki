@@ -10,5 +10,11 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrl: './main-playground.component.scss'
 })
 export class MainPlaygroundComponent {
- // pass
+ playerName: string = "New Player";
+ serverStatus: string = "Offline";
+ serverId: number = 10;
+
+ getServerStatus() {
+  return this.serverStatus;
+ }
 }
