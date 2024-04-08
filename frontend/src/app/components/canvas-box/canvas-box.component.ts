@@ -58,31 +58,46 @@ export class CanvasBoxComponent implements OnInit {
     });
 
     // Scene objects
+    // // Light
+    const light = new THREE.DirectionalLight(0xffffff, 1);
     // // Materials
-    const materialBox = new THREE.MeshToonMaterial();
-    const materialPlane = new THREE.MeshToonMaterial({
+    const materialBox = new THREE.MeshPhongMaterial();
+    const materialSphere = new THREE.MeshPhongMaterial({ color: 0xffff00 });
+    const materialPlane = new THREE.MeshPhongMaterial({
       color: 0xff4444,
       side: THREE.DoubleSide,
+      flatShading: true
     });
-    const materialSphere = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     // // Geometry
     const sphereGeometry = new THREE.SphereGeometry(1, 32, 16);
-    const planeGeometry = new THREE.PlaneGeometry(4, 4, 10, 10);
+    const planeGeometry = new THREE.PlaneGeometry(5, 5, 15, 15);
     const boxGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
     // // Mesh
     const sphere = new THREE.Mesh(sphereGeometry, materialSphere);
     const box = new THREE.Mesh(boxGeometry, materialBox);
     const plane = new THREE.Mesh(planeGeometry, materialPlane);
+
+    // // Plane Mesh Alter
+    const  arr = (plane.geometry.attributes.position as THREE.BufferAttribute).array;
+    for (let i = 0; i < arr.length; i +=3){
+      // Only Z values
+      const z = arr[i + 2];
+      arr[i + 2] = z + Math.random();
+    }
+
     // // Position
+    light.position.set(0,0,1);
     plane.position.set(0,0,0);
     box.position.set(4, 2, 0);
     sphere.position.set(4, 0, 0);
     // Mesh add
+    scene.add(light);
     scene.add(plane);
     scene.add(box);
     scene.add(sphere);
     scene.add(camera);
-    scene.add(ambientLight);
+    // scene.add(ambientLight);
+
     // Render
     renderer.setClearColor(0xe232222, 1);
     renderer.setPixelRatio(devicePixelRatio);
