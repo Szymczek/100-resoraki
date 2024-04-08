@@ -21,6 +21,46 @@ export class CanvasBoxComponent implements OnInit {
   createThreeJsBox(): void {
     // GUI
     const gui = new GUI();
+    const worldObjects = {
+      plane: {
+        width: 5,
+        height: 5,
+        widthSegments: 15,
+        heightSegments: 15,
+        positionX: 0,
+        positionY: 0,
+        positionZ: 0,
+        rotationX: 0,
+        rotationY: 0,
+        rotationZ: 0,
+      }
+    }
+    gui.add(worldObjects.plane, 'width', 1, 12).onChange(() => {generateNewPlane()});
+    gui.add(worldObjects.plane, 'height', 1, 6.5).onChange(() => {generateNewPlane()});
+    gui.add(worldObjects.plane, 'widthSegments', 1, 100).onChange(() => {generateNewPlane()});
+    gui.add(worldObjects.plane, 'heightSegments', 1, 100).onChange(() => {generateNewPlane()});
+    gui.add(worldObjects.plane, 'positionX', -10, 10).onChange(() => {plane.position.set(worldObjects.plane.positionX, worldObjects.plane.positionY, worldObjects.plane.positionZ)});
+    gui.add(worldObjects.plane, 'positionY', -10, 10).onChange(() => {plane.position.set(worldObjects.plane.positionX, worldObjects.plane.positionY, worldObjects.plane.positionZ)});
+    gui.add(worldObjects.plane, 'positionZ', -10, 10).onChange(() => {plane.position.set(worldObjects.plane.positionX, worldObjects.plane.positionY, worldObjects.plane.positionZ)});
+    gui.add(worldObjects.plane, 'rotationX', -10, 10).onChange(() => {plane.rotation.x = worldObjects.plane.rotationX;});
+    gui.add(worldObjects.plane, 'rotationY', -10, 10).onChange(() => {plane.rotation.y = worldObjects.plane.rotationY;});
+    gui.add(worldObjects.plane, 'rotationZ', -10, 10).onChange(() => {plane.rotation.z = worldObjects.plane.rotationZ;});
+    // Functions
+    function generateNewPlane() {
+      // Clear and prepare
+      plane.geometry.dispose();
+      plane.geometry = new THREE.PlaneGeometry(worldObjects.plane.width, worldObjects.plane.height, worldObjects.plane.widthSegments, worldObjects.plane.heightSegments);
+      // // Plane Mesh Alter
+      const  arr = (plane.geometry.attributes.position as THREE.BufferAttribute).array;
+      for (let i = 0; i < arr.length; i +=3){
+        // Only Z values
+        const z = arr[i + 2];
+        arr[i + 2] = z + Math.random();
+      }
+    }
+    function changePosition() {
+
+    }
     // Basic Settings
     const clock = new THREE.Clock();
     const scene = new THREE.Scene();
@@ -76,7 +116,6 @@ export class CanvasBoxComponent implements OnInit {
     const sphere = new THREE.Mesh(sphereGeometry, materialSphere);
     const box = new THREE.Mesh(boxGeometry, materialBox);
     const plane = new THREE.Mesh(planeGeometry, materialPlane);
-
     // // Plane Mesh Alter
     const  arr = (plane.geometry.attributes.position as THREE.BufferAttribute).array;
     for (let i = 0; i < arr.length; i +=3){
@@ -84,7 +123,6 @@ export class CanvasBoxComponent implements OnInit {
       const z = arr[i + 2];
       arr[i + 2] = z + Math.random();
     }
-
     // // Position
     light.position.set(0,0,1);
     plane.position.set(0,0,0);
