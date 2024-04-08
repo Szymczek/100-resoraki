@@ -58,9 +58,6 @@ export class CanvasBoxComponent implements OnInit {
         arr[i + 2] = z + Math.random();
       }
     }
-    function changePosition() {
-
-    }
     // Basic Settings
     const clock = new THREE.Clock();
     const scene = new THREE.Scene();
