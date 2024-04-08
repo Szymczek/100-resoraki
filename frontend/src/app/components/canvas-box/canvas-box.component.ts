@@ -1,6 +1,7 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import * as THREE from 'three';
 import { isPlatformBrowser } from '@angular/common';
+import * as THREE from 'three';
+import { OrbitControls } from 'three-addons';
 import { GUI } from 'dat.gui';
 
 @Component({
@@ -61,15 +62,6 @@ export class CanvasBoxComponent implements OnInit {
     // Basic Settings
     const clock = new THREE.Clock();
     const scene = new THREE.Scene();
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    // Camera
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      innerWidth / innerHeight,
-      0.001,
-      1000
-    );
-    camera.position.z = 5;
     // Canvas, Render
     const canvas = document.getElementById('canvas-box');
     if (!canvas) {
@@ -93,7 +85,15 @@ export class CanvasBoxComponent implements OnInit {
       renderer.setSize(canvasSizes.width, canvasSizes.height);
       renderer.render(scene, camera);
     });
-
+    // Camera
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      innerWidth / innerHeight,
+      0.001,
+      1000
+    );
+    new OrbitControls(camera, canvas);
+    camera.position.z = 5;
     // Scene objects
     // // Light
     const light = new THREE.DirectionalLight(0xffffff, 1);
