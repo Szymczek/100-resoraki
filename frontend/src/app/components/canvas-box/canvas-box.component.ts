@@ -178,15 +178,20 @@ export class CanvasBoxComponent implements OnInit {
 
     // Events
     const mouse = new THREE.Vector2(0, 0);
-
+    
     // Scene-Loop
     const animateGeometry = () => {
       window.requestAnimationFrame(animateGeometry);
+      //@ts-ignore
       raycaster.setFromCamera(mouse, camera);
       const intersects = raycaster.intersectObject(plane);
       console.log(intersects)
       if (intersects.length > 1){
         console.log(intersects)
+        // @ts-ignore
+        intersects[0].object.geometry.attributes.color.setX(intersects[0].face.a,0);
+        // @ts-ignore
+        intersects[0].object.geometry.attributes.color.needsUpdate = true;
       }
       renderer.render(scene, camera);
       // // Event
@@ -196,7 +201,9 @@ export class CanvasBoxComponent implements OnInit {
     };
     animateGeometry();
     addEventListener('mousemove', (event) => {
+        //@ts-ignore
       (mouse.x = (event.clientX / innerWidth) * 2 - 1),
+      //@ts-ignore  
       (mouse.y = -(event.clientY / innerHeight) * 2 + 1);
     });
   }
