@@ -144,13 +144,13 @@ export class CanvasBoxComponent implements OnInit {
     });
 
     // // Geometry
-    // const sphereGeometry = new THREE.SphereGeometry(1, 32, 16);
+    const sphereGeometry = new THREE.SphereGeometry(1, 32, 16);
     const planeGeometry = new THREE.PlaneGeometry(4, 4, 15, 15);
-    // const boxGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+    const boxGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
 
     // // Mesh
-    // const sphere = new THREE.Mesh(sphereGeometry, materialSphere);
-    // const box = new THREE.Mesh(boxGeometry, materialBox);
+    const sphere = new THREE.Mesh(sphereGeometry, materialSphere);
+    const box = new THREE.Mesh(boxGeometry, materialBox);
     const plane = new THREE.Mesh(planeGeometry, materialPlane);
 
     // Plane Change
@@ -161,15 +161,15 @@ export class CanvasBoxComponent implements OnInit {
     light.position.set(0, 0, 1);
     backLight.position.set(0,0,-1);
     plane.position.set(0, 0, 0);
-    // box.position.set(4, 2, 0);
-    // sphere.position.set(4, 0, 0);
+    box.position.set(4, 2, 0);
+    sphere.position.set(4, 0, 0);
 
     // Mesh add
     scene.add(plane);
     scene.add(light);
     scene.add(backLight);
-    // scene.add(box);
-    // scene.add(sphere);
+    scene.add(box);
+    scene.add(sphere);
     scene.add(camera);
 
     // Render
