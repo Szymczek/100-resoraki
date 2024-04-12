@@ -2,11 +2,15 @@
 <div>
   <p>Info:</p>
   <p>Server status: {{ getServerStatus() }} Id: {{ serverId }}</p>
-  <input type="text" [(ngModel)]="username">
-  <p>{{username}}</p>
-  <button class="" [disabled]="username === ''" (click)="resetName()">Reset</button>
+  <input type="text" [(ngModel)]="username" />
+  <p>{{ username }}</p>
+  <button class="" [disabled]="username === ''" (click)="resetName()">
+    Reset
+  </button>
 
-  <button class="" [disabled]="username === ''" (click)="addPlayer()">Add Player</button>
+  <button class="" [disabled]="username === ''" (click)="addPlayer()">
+    Add Player
+  </button>
 
   <!-- <p *ngIf="playerCreated; else noPlayer">Player {{username}} added!</p>
   <ng-template #noPlayer>
@@ -15,28 +19,36 @@
   <!-- @if (playerCreated) {
     <p>Player Added!</p>
   } -->
+  <p>skip</p>
 
+  <div>
+    <label>List of players:</label>
 
-<div>
-  <label>List of players:</label>
-
-@for (player of players; track player) {
-  <li>{{player.name}}</li>
-  <button (click)="toggleDetails(player); addLog('detailsButton', 'Display details pressed.')">Display details</button>
-  @if (player.showDetails){
+    @for (player of players; track player) {
+    <li>{{ player.name }}</li>
+    <button
+      (click)="
+        toggleDetails(player);
+        addLog('detailsButton', 'Display details pressed.')
+      "
+    >
+      Display details
+    </button>
+    @if (player.showDetails){
     <div>
-      <p>Created: {{player.created}}</p>
-      <p>Kills: {{player.kills}}</p>
+      <p>Created: {{ player.created }}</p>
+      <p>Kills: {{ player.kills }}</p>
     </div>
-  }
-}
+    } }
 
-<div>
-  <p>Logs:</p>
-  <li *ngFor="let log of logs; let i = index" [ngStyle]="{'background-color': i % 5 === 0 ? 'blue' : 'transparent'}">
-{{log.created}} Type:{{log.type}} Description:{{log.description}}
-  </li>
-</div>
-
-</div>
+    <div>
+      <p>Logs:</p>
+      <li
+        *ngFor="let log of logs; let i = index"
+        [ngStyle]="{ 'background-color': i % 5 === 0 ? 'blue' : 'transparent' }"
+      >
+        {{ log.created }} Type:{{ log.type }} Description:{{ log.description }}
+      </li>
+    </div>
+  </div>
 </div>
